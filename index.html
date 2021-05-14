@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Omnimatte: Associating Objects and Their Effects in Video</title>
+  <link href="./css/style.css" rel="stylesheet" type="text/css">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-159450849-2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-159450849-2');
+  </script>
+  <meta name="description" content="Project page for 'Omnimatte: Associating Objects and Their Effects in Video.'">
+</head>
+<body>
+  <p class="title">Omnimatte: Associating Objects and Their Effects in Video</p>
+  <p class="author">
+    <span class="author"><a target="_blank" href="http://www.erikalu.com/">Erika Lu</a>&nbsp;<sup>1, 2</sup></span>
+    <span class="author"><a target="_blank" href="http://people.csail.mit.edu/fcole/">Forrester Cole</a>&nbsp;<sup>1</sup></span>
+    <span class="author"><a target="_blank" href="http://people.csail.mit.edu/talidekel/">Tali Dekel</a>&nbsp;<sup>1, 3</sup></span>
+    <span class="author"><a target="_blank" href="https://www.robots.ox.ac.uk/~az/">Andrew Zisserman</a>&nbsp;<sup>2</sup></span>
+    <span class="author"><a target="_blank" href="https://billf.mit.edu/">William T. Freeman</a>&nbsp;<sup>1</sup></span>
+    <span class="author"><a target="_blank" href="http://people.csail.mit.edu/mrub/">Michael Rubinstein</a>&nbsp;<sup>1</sup></span>
+  </p>
+  <table border="0" align="center" class="affiliations" width="1200px">
+    <tbody align="center">
+      <tr>
+        <td style="text-align: right; width: 15%"><img src="./assets/GoogleAI_logo.png" height="48" alt=""></td>
+        <td style="text-align: left">&nbsp;<sup>1</sup>&nbsp;<a href="https://research.google.com/">Google Research</a></td>
+        <td style="text-align: right; width: 15%"><img src="./assets/oxford_logo.png" height="48" alt=""></td>
+        <td style="text-align: left">&nbsp;<sup>2</sup>&nbsp;<a href="http://www.robots.ox.ac.uk/~vgg/">VGG, University of Oxford</a>
+        </td>
+        <td style="text-align: right; width: 15%"><img src="./assets/wis_logo.jpg" height="48" alt=""></td>
+        <td style="text-align: left">&nbsp;<sup>3</sup>&nbsp;<a href="https://www.weizmann.ac.il/pages/">Weizmann Institute of Science</a></td>
+      </tr>
+    </tbody></table>
+    <table width="999" border="0" align="center" class="menu">
+      <tbody>
+        <tr>
+          <td align="center">| <a href="#paper">Paper</a> | <a href="#code">Code</a> |</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="container">
+      <table width="200" border="0" align="center">
+        <tbody>
+          <tr>
+            <td colspan="4" align="center"><img src="./assets/teaser1.gif" width="980" alt="" style="margin-top:10px"></td>
+          </tr>
+        </tbody></table>
+        <table width="200" border="0" align="center" style="table-layout: fixed; width: 100%">
+          <tbody>
+            <tr>
+              <td colspan="4" class="caption"><p>We pose a novel problem: automatically associating subjects in videos with ‘effects’ related to them in the scene. Given an input video (top) and rough masks of subjects of interest (middle), our method estimates an <em>omnimatte</em> – an alpha matte and foreground color that includes the subject itself along with all scene elements associated with it (bottom). The associated elements can be other objects attached to the subject or moving with it, or complex effects such as shadows, reflections, smoke, or ripples the subject creates in water.
+              </p></td>
+            </tr>
+          </tbody></table>
+          <!-- <p class="section">&nbsp;</p> -->
+          <p><span class="section">Abstract</span> </p>
+          <p>Computer vision is increasingly effective at segmenting objects in images and videos; however, scene effects related to the objects&mdash;shadows, reflections, generated smoke, etc&mdash;are typically overlooked. Identifying such scene effects and associating them with the objects producing them is important for improving our fundamental understanding of visual scenes, and can also assist a variety of applications such as removing, duplicating, or enhancing objects in video. In this work, we take a step towards solving this novel problem of automatically associating objects with their effects in video. Given an ordinary video and a rough segmentation mask over time of one or more subjects of interest, we estimate an <em>omnimatte</em> for each subject&mdash;an alpha matte and color image that includes the subject along with all its related time-varying scene elements. Our model is trained only on the input video in a self-supervised manner, without any manual labels, and is generic&mdash;it produces omnimattes automatically for arbitrary objects and a variety of effects. We show results on real-world videos containing interactions between different types of subjects (cars, animals, people) and complex effects, ranging from semi-transparent elements such as smoke and reflections, to fully opaque effects such as objects attached to the subject.<br>
+          </p>
+          <p class="section">&nbsp;</p>
+          <p class="section" id="paper">Paper</p>
+          <table width="940" border="0">
+            <tbody>
+              <tr>
+                <td height="100"><a href="./assets/omnimatte.pdf"><img src="./assets/paper_preview.png" alt="" width="140" height="167"></a></td>
+                <td width="750"><p><b>Omnimatte: Associating Objects and Their Effects in Video</b><br>
+                  Erika Lu, Forrester Cole, Tali Dekel, Andrew Zisserman, William T. Freeman, and Michael Rubinstein<br>
+                  <em>CVPR Oral 2021.</em><br><br>
+                  [<a href="./assets/omnimatte.pdf">paper</a>]</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="section">&nbsp;</p>
+          <p class="section" id="results">Results</p>
+          <table width="940" border="0">
+            <tbody>
+	          <tr>
+	            <td colspan="4" align="center"><img src="./assets/blackswan.gif" width="980" alt="" style="margin-top:10px"></td>
+	          </tr>            
+	          <tr>
+	            <td colspan="4" align="center"><img src="./assets/elephant.gif" width="980" alt="" style="margin-top:10px"></td>
+	          </tr>            
+	          <tr>
+	            <td colspan="4" align="center"><img src="./assets/tennis.gif" width="980" alt="" style="margin-top:10px"></td>
+	          </tr>            
+	          <tr>
+	            <td colspan="4" align="center"><img src="./assets/soccer.gif" width="980" alt="" style="margin-top:10px"></td>
+	          </tr>            
+	      </tbody>
+          </table>
+          <p class="section">&nbsp;</p>
+          <p class="section">Supplementary Material</p>
+          <table width="587" height="136" border="0">
+            <tbody>
+              <tr>
+                <td width="300"><img src="./assets/supp_fig.png" alt="" height="100"></td>
+                <td align="left">
+                  <p>[<a href="./supplementary/index.html">supplementary page</a>]</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="section">&nbsp;</p>
+          <p class="section" id="code">Code</p>
+          <table border="0">
+            <tbody>
+              <tr>
+                <td width="80"><a href=""><img src="./assets/github_logo.png" alt="" height="50"></a></td>
+                <td align="left">
+                  <!-- <p>[<a href="">code</a>]</p> -->
+                  <p>Code coming soon!</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="section">&nbsp;</p>
+          <p class="section" id="related">Related Work</p>
+          <table width="940" border="0">
+            <tbody>
+              <tr>
+                <td height="100"><a href="https://arxiv.org/pdf/2009.07833.pdf"><img src="./assets/paper_preview_retiming.png" alt="" width="140" height="167"></a></td>
+                <td width="750"><p><b>Layered Neural Rendering for Retiming People in Video</b><br>
+                  Erika Lu, Forrester Cole, Tali Dekel, Weidi Xie, Andrew Zisserman, David Salesin, William T. Freeman, and Michael Rubinstein<br>
+                  <em>SIGGRAPH Asia 2020.</em><br><br>
+                  [<a href="https://arxiv.org/pdf/2009.07833.pdf">paper</a>] [<a href="https://retiming.github.io">project page</a>]</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          </table>
+          <p>&nbsp;</p>
+          <blockquote>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p><em><b>Acknowledgements. </b>This work was supported in part by an Oxford-Google DeepMind Graduate Scholarship and a Royal Society Research Professorship. We thank Weidi Xie for assisting with object removal baselines.
+            </em>  </p>
+          </blockquote>
+        </div>
+
+
+      </body></html>

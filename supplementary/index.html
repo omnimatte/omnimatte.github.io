@@ -1,0 +1,1098 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Omnimatte: Associating Objects and Their Effects</title>
+<link href="./assets/css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<div class="container">
+  <h1 align="center">Omnimatte: Associating Objects and Their Effects</h1>
+  <h2 align="center">Supplementary Material</h2>
+  <h2 align="center"><a href="http://omnimatte.github.io">Main Project Page</a></h2>
+  <p>&nbsp;</p>
+  <ul>
+    <li><a href="assets/supplementary.pdf" target="_blank">Supplementary PDF - with formulation and implementation details</a></li><br>
+    <li><a href="#effects">Video Editing Effects Using Omnimattes (Section 4.6 and Figure 6) </a></li>
+    <li><a href="#omnimatte_results">Omnimatte Results (Section 4.1, Teaser, and Figure 3)</a></li>
+    <li><a href="#removal">Object Removal (Section 4.2, Figures 4 and 5)</a></li>
+    <li><a href="#shadow">Comparison with Shadow Detection (Section 4.3 and Figure 7)</a></li>
+    <li><a href="#background_sub">Comparison with Background Subtraction (Section 4.4 and Figure 8)</a></li>
+    <li><a href="#lnr">Comparison with Layered Neural Rendering (Section 4.5 and Figure 10)</a></li>
+    <li><a href="#ablations">Ablations (Section 4.7 and Figure 9)</a></li>
+    <li><a href="#seeds">Different Initializations (Section 4.8)</a></li>
+	</ul>
+  <p>&nbsp;</p>
+  <hr>
+  <h2 align="left"><a name="effects" id="effects"></a>Video Editing Effects Using Omnimattes</h2>
+  <p align="left">We demonstrate several editing effects using our omnimattes: stroboscopy and duplication, color pop, and background replacement.</p>
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"Horsejump-Low - Stroboscopy"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video width="900" controls="controls" loop>
+            <source src="assets/effects/horsejump-low_with_blend_pad.mp4" type="video/mp4">
+          </video></td>
+		</tr>
+	  </tbody>
+  </table>	  
+	<br>
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"Flamingo - Color Pop"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video height="256" controls="controls" loop>
+            <source src="assets/effects/flamingo_color_pop_pad.mp4" type="video/mp4">
+          </video></td>
+		</tr>
+		<tr><td><b>*Note: Subject and reflection are kept in color, while background is set to grayscale.</b></td></tr>
+	  </tbody>
+  </table>	 
+	<br>
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"Breakdance-flare - Background Replacement"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video height="256" controls="controls" loop>
+            <source src="assets/effects/breakdance-flare_bg_replacement_pad.mp4" type="video/mp4">
+          </video></td>
+		</tr>
+	  </tbody>
+  </table>	
+  <p align="left">&nbsp;</p>
+  <hr>
+  <h2 align="left"><a name="omnimatte_results" id="omnimatte_results"></a>Omnimatte Results</h2>
+  <p align="left">For each result, we show the original video, input mask(s), output omnimatte(s) (alpha and RGBA), and output background.
+</p>
+  <p align="left">&nbsp;</p>
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"Dogwalk"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video width="900" controls="controls" loop>
+            <source src="assets/omnimatte_results/dogwalk_pad.mp4" type="video/mp4">
+          </video></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+	<table width="600" border="0" align="center">
+	  <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"Blackswan"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video width="900" controls="controls" loop>
+            <source src="assets/omnimatte_results/blackswan_pad.mp4" type="video/mp4">
+          </video></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"Soccer"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video width="900" controls="controls" loop>
+            <source src="assets/omnimatte_results/soccer_pad.mp4" type="video/mp4">
+          </video></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"Tennis"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video width="900" controls="controls" loop>
+            <source src="assets/omnimatte_results/tennis_pad.mp4" type="video/mp4">
+          </video></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"Horsejump-low"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video width="900" controls="controls" loop>
+            <source src="assets/omnimatte_results/horsejump-low_pad.mp4" type="video/mp4">
+          </video></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"Elephant"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video width="900" controls="controls" loop>
+            <source src="assets/omnimatte_results/elephant_pad.mp4" type="video/mp4">
+          </video></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"Lucia"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video width="900" controls="controls" loop>
+            <source src="assets/omnimatte_results/lucia_pad.mp4" type="video/mp4">
+          </video></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+	<table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"Drift-chicane"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video width="900" controls="controls" loop>
+            <source src="assets/omnimatte_results/drift-chicane_pad.mp4" type="video/mp4">
+          </video></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"Flamingo"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video width="900" controls="controls" loop>
+            <source src="assets/omnimatte_results/flamingo_pad.mp4" type="video/mp4">
+          </video></td>
+      </tr>
+	  </tbody>
+  </table>
+  <br>
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"S-busStation"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video width="900" controls="controls" loop>
+            <source src="assets/omnimatte_results/s-busStation_pad.mp4" type="video/mp4">
+          </video></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+	<table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"Breakdance"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video width="900" controls="controls" loop>
+            <source src="assets/omnimatte_results/breakdance_pad.mp4" type="video/mp4">
+          </video></td>
+      </tr>
+		<tr><td><b>*Note: As discussed in Section 4.2, we use a single layer to capture the motion of the people in the crowd.
+			Note that the static regions of the crowd are captured by the background layer, whereas the dynamic regions are captured by the crowd omnimatte layer.</b></td></tr>
+		</tbody>
+  </table>
+  <br>
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"Breakdance-flare"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video width="900" controls="controls" loop>
+            <source src="assets/omnimatte_results/breakdance-flare_pad.mp4" type="video/mp4">
+          </video></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"Bear"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video width="900" controls="controls" loop>
+            <source src="assets/omnimatte_results/bear_pad.mp4" type="video/mp4">
+          </video></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+	<table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"Hike"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video width="900" controls="controls" loop>
+            <source src="assets/omnimatte_results/hike_pad.mp4" type="video/mp4">
+          </video></td>
+      </tr>
+		<tr><td><b>*Note: An example of a failure due to inaccurate camera stabilization (elements in the background are captured in the person's omnimatte to correct for stabilization errors).</b></td></tr>
+    </tbody>
+  </table>
+  <br>
+	<table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"Camel"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video width="900" controls="controls" loop>
+            <source src="assets/omnimatte_results/camel_pad.mp4" type="video/mp4">
+          </video></td>
+      </tr>
+		<tr><td><b>*Note: Since the camel in the back is largely static, it is mostly captured by the background (due to our alpha regularization term); its head movements are captured by the corresponding omnimatte.</b></td></tr>
+    </tbody>
+  </table>
+  <br>
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"Car-shadow"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video width="900" controls="controls" loop>
+            <source src="assets/omnimatte_results/car-shadow_pad.mp4" type="video/mp4">
+          </video></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"Cows"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video width="900" controls="controls" loop>
+            <source src="assets/omnimatte_results/cows_pad.mp4" type="video/mp4">
+          </video></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"Dance-twirl"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video width="900" controls="controls" loop>
+            <source src="assets/omnimatte_results/dance-twirl_pad.mp4" type="video/mp4">
+          </video></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"Dog-agility"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video width="900" controls="controls" loop>
+            <source src="assets/omnimatte_results/dog-agility_pad.mp4" type="video/mp4">
+          </video></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"Horsejump-high"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video width="900" controls="controls" loop>
+            <source src="assets/omnimatte_results/horsejump-high_pad.mp4" type="video/mp4">
+          </video></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"Judo"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video width="900" controls="controls" loop>
+            <source src="assets/omnimatte_results/judo_pad.mp4" type="video/mp4">
+          </video></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"Kite-walk"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video width="900" controls="controls" loop>
+            <source src="assets/omnimatte_results/kite-walk_pad.mp4" type="video/mp4">
+          </video></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"Mallard-fly"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video width="900" controls="controls" loop>
+            <source src="assets/omnimatte_results/mallard-fly_pad.mp4" type="video/mp4">
+          </video></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"Mallard-water"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video width="900" controls="controls" loop>
+            <source src="assets/omnimatte_results/mallard-water_pad.mp4" type="video/mp4">
+          </video></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"Paragliding"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video width="900" controls="controls" loop>
+            <source src="assets/omnimatte_results/paragliding_pad.mp4" type="video/mp4">
+          </video></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"Paragliding-launch"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video width="900" controls="controls" loop>
+            <source src="assets/omnimatte_results/paragliding-launch_pad.mp4" type="video/mp4">
+          </video></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"Rhino"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video width="900" controls="controls" loop>
+            <source src="assets/omnimatte_results/rhino_pad.mp4" type="video/mp4">
+          </video></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"Rollerblade"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video width="900" controls="controls" loop>
+            <source src="assets/omnimatte_results/rollerblade_pad.mp4" type="video/mp4">
+          </video></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"Skate-park"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video width="900" controls="controls" loop>
+            <source src="assets/omnimatte_results/skate-park_pad.mp4" type="video/mp4">
+          </video></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"Tractor-sand"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video width="900" controls="controls" loop>
+            <source src="assets/omnimatte_results/tractor-sand_pad.mp4" type="video/mp4">
+          </video></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+
+	<p align="left">&nbsp;</p>
+  <p align="left">&nbsp;</p>
+  <hr>
+	  
+  <h2 align="left"><a name="removal" id="removal"></a>Object Removal</h2>
+  <p align="left">We compare our method on object removal with the video completion method, FGVC [1].<br>
+	For each example, we show the original video, the manual mask used by FGVC and their result, our fully automatic mask (from binarizing our omnimatte) and the FGVC result using our mask, and removal using our omnimatte-only method.<br>
+	  *Note: Using their beta code, we were unable to exactly reproduce their results. Thus we run their code on their manual masks and use these results for comparison.
+	</p>
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"Horsejump-low"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video height="384" controls="controls" loop>
+            <source src="assets/removal/horsejump-low_pad.mp4" type="video/mp4">
+          </video></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"Breakdance"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video height="384" controls="controls" loop>
+            <source src="assets/removal/breakdance_pad.mp4" type="video/mp4">
+          </video></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"Flamingo"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video height="384" controls="controls" loop>
+            <source src="assets/removal/flamingo_pad.mp4" type="video/mp4">
+          </video></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+	<table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"Car-shadow"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video height="384" controls="controls" loop>
+            <source src="assets/removal/car-shadow_pad.mp4" type="video/mp4">
+          </video></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+	<table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"Breakdance-flare"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video height="384" controls="controls" loop>
+            <source src="assets/removal/breakdance-flare_pad.mp4" type="video/mp4">
+          </video></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"Camel"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video height="384" controls="controls" loop>
+            <source src="assets/removal/camel_pad.mp4" type="video/mp4">
+          </video></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+	<table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"Bear"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video height="384" controls="controls" loop>
+            <source src="assets/removal/bear_pad.mp4" type="video/mp4">
+          </video></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"Dance-twirl"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video height="384" controls="controls" loop>
+            <source src="assets/removal/dance-twirl_pad.mp4" type="video/mp4">
+          </video></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"Elephant"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video height="384" controls="controls" loop>
+            <source src="assets/removal/elephant_pad.mp4" type="video/mp4">
+          </video></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"Hike"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video height="384" controls="controls" loop>
+            <source src="assets/removal/hike_pad.mp4" type="video/mp4">
+          </video></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"Horsejump-high"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video height="384" controls="controls" loop>
+            <source src="assets/removal/horsejump-high_pad.mp4" type="video/mp4">
+          </video></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"Paragliding"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video height="384" controls="controls" loop>
+            <source src="assets/removal/paragliding_pad.mp4" type="video/mp4">
+          </video></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"Paragliding-launch"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video height="384" controls="controls" loop>
+            <source src="assets/removal/paragliding-launch_pad.mp4" type="video/mp4">
+          </video></td>
+      </tr>
+		<tr><td><b>*Note: The omnimatte captures the shadow, but not the cables due to the difficulty in producing thin structures with CNNs.</b></td></tr>
+    </tbody>
+  </table>
+  <br>
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"Rhino"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video height="384" controls="controls" loop>
+            <source src="assets/removal/rhino_pad.mp4" type="video/mp4">
+          </video></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"Rollerblade"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video height="384" controls="controls" loop>
+            <source src="assets/removal/rollerblade_pad.mp4" type="video/mp4">
+          </video></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"Tennis"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video height="384" controls="controls" loop>
+            <source src="assets/removal/tennis_pad.mp4" type="video/mp4">
+          </video></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+
+  <p>&nbsp;</p>
+  <p align="left">&nbsp;</p>
+	<hr>
+	<h2 align="left"><a name="shadow" id="shadow"></a>Comparison with Shadow Detection</h2>
+  <p align="left">We compare our results with ISD [2], a state-of-the-art shadow detection method. We use the default confidence threshold of 0.5 provided by their code.
+	A red border indicates no detection.</p>
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"Lucia"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video width="900" controls="controls" loop>
+            <source src="assets/shadow/lucia_pad.mp4" type="video/mp4">
+          </video></td>
+		</tr>
+    </tbody>
+  </table>
+<br>
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"Dogwalk"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video width="900" controls="controls" loop>
+            <source src="assets/shadow/dogwalk_pad.mp4" type="video/mp4">
+          </video></td>
+		</tr>
+    </tbody>
+  </table>
+<br>
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"Soccer"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video width="900" controls="controls" loop>
+            <source src="assets/shadow/soccer_pad.mp4" type="video/mp4">
+          </video></td>
+		</tr>
+    </tbody>
+  </table>
+	<br>
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"Bear"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video width="900" controls="controls" loop>
+            <source src="assets/shadow/bear_pad.mp4" type="video/mp4">
+          </video></td>
+		</tr>
+    </tbody>
+  </table>
+	<br>
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"Horsejump-Low"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video width="900" controls="controls" loop>
+            <source src="assets/shadow/horsejump-low_pad.mp4" type="video/mp4">
+          </video></td>
+		</tr>
+    </tbody>
+  </table>
+	<br>
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"Tennis"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video width="900" controls="controls" loop>
+            <source src="assets/shadow/tennis_pad.mp4" type="video/mp4">
+          </video></td>
+		</tr>
+    </tbody>
+  </table>
+	<br>
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"Camel"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video width="900" controls="controls" loop>
+            <source src="assets/shadow/camel_pad.mp4" type="video/mp4">
+          </video></td>
+		</tr>
+    </tbody>
+  </table>
+	<p align="left">&nbsp;</p>
+  <hr>
+  <h2 align="left"><a name="background_sub" id="background_sub"></a>Comparison with Background Subtraction</h2>
+  <p align="left">We compare our method to background subtraction on a subset of CDW-2014 [3]. We compare with BSPVGAN [4], a top performing method on the CDW-2014 benchmark.<br>
+	  In the ground truth, pixel-value labels are: 0=Static, 50=Hard shadow, 85=Outside region of interest, 170=Unknown motion (usually around moving objects, due to semi-transparency and motion blur), 255=Motion.
+	</p>
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"b-pedestrians"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video height="192" controls="controls" loop>
+            <source src="assets/background_sub/b-pedestrians_pad.mp4" type="video/mp4">
+			</video></td>
+	</tr>
+    </tbody>
+  </table>  
+<br>
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"c-traffic"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video height="192" controls="controls" loop>
+            <source src="assets/background_sub/c-traffic_pad.mp4" type="video/mp4">
+			</video></td>
+	</tr>
+    </tbody>
+  </table>  
+<br>
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"b-highway"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video height="192" controls="controls" loop>
+            <source src="assets/background_sub/b-highway_pad.mp4" type="video/mp4">
+			</video></td>
+	</tr>
+    </tbody>
+  </table>  
+<br>
+	<table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"d-overpass"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video height="192" controls="controls" loop>
+            <source src="assets/background_sub/d-overpass_pad.mp4" type="video/mp4">
+			</video></td>
+	</tr>
+    </tbody>
+  </table>  
+<br>
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"P-continuousPan"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video height="192" controls="controls" loop>
+            <source src="assets/background_sub/P-continuousPan_pad.mp4" type="video/mp4">
+			</video></td>
+	</tr>
+		<tr><td><b>*Note: This video is played at half-speed.</b></td></tr>
+    </tbody>
+  </table>  
+<br>
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"P-twoPositionPTZCam2"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video height="192" controls="controls" loop>
+            <source src="assets/background_sub/P-twoPositionPTZCam2_pad.mp4" type="video/mp4">
+			</video></td>
+	</tr>
+    </tbody>
+  </table>  
+<br>
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"P-zoomInZoomOut"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video height="192" controls="controls" loop>
+            <source src="assets/background_sub/P-zoomInZoomOut_pad.mp4" type="video/mp4">
+			</video></td>
+	</tr>
+    </tbody>
+  </table>  
+<br>
+	<table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"s-busStation"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video height="192" controls="controls" loop>
+            <source src="assets/background_sub/s-busStation_pad.mp4" type="video/mp4">
+			</video></td>
+	</tr>
+    </tbody>
+  </table>  
+<br>
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"s-cubicle"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video height="192" controls="controls" loop>
+            <source src="assets/background_sub/s-cubicle_pad.mp4" type="video/mp4">
+			</video></td>
+	</tr>
+    </tbody>
+  </table>  
+<br>
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"s-peopleInShade"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video height="192" controls="controls" loop>
+            <source src="assets/background_sub/s-peopleInShade_pad.mp4" type="video/mp4">
+			</video></td>
+	</tr>
+    </tbody>
+  </table>  
+<br>
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"s-peopleInShade3"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video height="192" controls="controls" loop>
+            <source src="assets/background_sub/s-peopleInShade3_pad.mp4" type="video/mp4">
+			</video></td>
+	</tr>
+    </tbody>
+  </table>  
+<br>
+
+  <p align="left">&nbsp;</p>
+  <hr>
+  <h2 align="left"><a name="lnr" id="lnr"></a>Comparison with Layered Neural Rendering</h2>
+  <p align="left">We compare our method with Lu, et al. [5], which uses a human-specific input representation.</p>
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"Trampoline"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video width="1000" controls="controls" loop>
+            <source src="assets/retiming/trampoline_pad.mp4" type="video/mp4">
+          </video></td>
+		</tr>
+	  </tbody>
+  </table>	
+	<br>
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"Reflection"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"></td>
+        <td align="center"><video width="1000" controls="controls" loop>
+            <source src="assets/retiming/reflection_pad.mp4" type="video/mp4">
+          </video></td>
+		</tr>
+	  </tbody>
+  </table>	
+  <p align="left">&nbsp;</p>
+  <hr>
+  <h2 align="left"><a name="ablations" id="ablations"></a>Ablations</h2>
+  <p align="left">We ablate the flow component, background warp, and brightness adjustment components of our method.</p>
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"Bear"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video width="900" controls="controls" loop>
+            <source src="assets/ablations/bear_pad.mp4" type="video/mp4">
+          </video></td>
+		</tr>
+	  </tbody>
+  </table>
+	<br>
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"Trampoline"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video height="256" controls="controls" loop>
+            <source src="assets/ablations/trampoline_pad.mp4" type="video/mp4">
+          </video></td>
+		</tr>
+	  </tbody>
+  </table>
+	<p align="left">&nbsp;</p>
+  <hr>
+  <h2 align="left"><a name="seeds" id="seeds"></a>Different Initializations</h2>
+  <p align="left">Different weight initializations can result in different omnimattes produced. Here we show an example with 3 different random seeds.<br>
+	  E.g. in seed 1, more of the person's shadow is incorrectly associated with the soccerball.
+	</p>
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr align="center">
+        <td colspan="5" align="center"><h3>"Soccer"</h3>
+		</td>
+      </tr>
+      <tr>
+        <td align="center"><video width="900" controls="controls" loop>
+            <source src="assets/seeds/soccer_pad.mp4" type="video/mp4">
+          </video></td>
+		</tr>
+	  </tbody>
+  </table>	  
+	<p align="left">&nbsp;</p>
+	<hr>
+<h2 align="left">References</h2>
+<p>
+	[1] Chen Gao, Ayush Saraf, Jia-Bin Huang, and Johannes Kopf. Flow-edge guided video completion. In <em>Proc. European Conference on Computer Vision (ECCV)</em>, 2020.<br>
+	[2] Tianyu Wang, Xiaowei Hu, Qiong Wang, Pheng-Ann Heng, and Chi-Wing Fu. Instance shadow detection. In <em>IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)</em>, 2020.<br>
+	[3] Yi Wang, Pierre-Marc Jodoin, Fatih Porikli, Janusz Konrad, Yannick Benezeth, and Prakash Ishwar. CDnet 2014: An expanded change detection benchmark dataset. In <em>CVPR Workshop</em>, 2014.<br>
+	[4] Wenbo Zheng, Kunfeng Wang, and Fei-Yue Wang. A novel background subtraction algorithm based on parallel vision and bayesian GANs. <em>Neurocomputing</em>, 2020. <br>
+	[5] Erika Lu, Forrester Cole, Tali Dekel, Weidi Xie, Andrew Zisserman, David Salesin, William T Freeman, and Michael Rubinstein. Layered neural rendering for retiming people in video. <em>arXiv preprint arXiv:2009.07833</em>, 2020.
+</p>
+</div>
+
+
+</body></html>
